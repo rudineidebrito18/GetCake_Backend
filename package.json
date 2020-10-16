@@ -1,0 +1,7 @@
+{
+  "name": "GetCake_Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Spindola-C/GetCake_Backend.git",
+  "license": "MIT"
+}
