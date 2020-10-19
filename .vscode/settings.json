@@ -9,11 +9,11 @@
             "previewLimit": 50,
             "server": "172.17.0.1",
             "port": 1433,
+            "askForPassword": true,
             "driver": "MSSQL",
             "name": "GetCake",
             "database": "GetCake",
-            "username": "SA",
-            "password": "Pim@1234"
+            "username": "SA"
         }
     ]
 }
