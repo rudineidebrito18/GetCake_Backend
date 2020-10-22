@@ -4,14 +4,25 @@ const sql = require('mssql')
 
 const router = require('./routes')
 
-const connStr = "Server=172.17.0.1;Database=GetCake;User Id=SA;Password=Pim@1234;";
+const sqlConfig = {
+    password: 'Pim@1234',
+    database: 'GetCake',
+    stream: false,
+    options: {
+      enableArithAbort: true,
+      encrypt: false
+    },
+    port: 1433,
+    user: 'sa',
+    server: '172.17.0.1',
+  }
 const port = 3001
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-sql.connect(connStr)
+sql.connect(sqlConfig)
     .then(conn => global.conn = conn)
     .catch(err => console.log(err))
 
