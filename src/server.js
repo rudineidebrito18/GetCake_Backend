@@ -2,21 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const sql = require('mssql')
 
+const sqlConfig = require('./config/database')
 const router = require('./routes')
-
-const sqlConfig = {
-    password: 'Pim@1234',
-    database: 'GetCake',
-    stream: false,
-    options: {
-      enableArithAbort: true,
-      encrypt: false
-    },
-    port: 1433,
-    user: 'sa',
-    server: '172.17.0.1',
-  }
-const port = 3001
+   
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,5 +16,5 @@ sql.connect(sqlConfig)
 
 app.use('/', router)
 
-app.listen(port);
+app.listen(3001);
 console.log('API funcionando!');

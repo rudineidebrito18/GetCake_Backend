@@ -1,7 +1,7 @@
 const execSQLQuery = require("../utils/execSqlQuery")
 
-class EstoqueController {
-    async create(req, res) {
+module.exports = {
+    create: async (req, res) => {
         const nomeProduto = req.body.nomeProduto
         const codProdutoEstoque = parseInt(req.body.codProdutoEstoque)
         const quantidadeMaxima = parseInt(req.body.quantidadeMaxima)
@@ -16,11 +16,9 @@ class EstoqueController {
                             ('${nomeProduto}',${codProdutoEstoque}, ${quantidadeMaxima},
                             ${quantidadeMinima}, ${quantidadeEstoque}, ${dataEntrada},
                             ${dataSaida}, ${idEmpresa})`, res)
-    }
-    async read(req, res) {
+    },
+    index: async (req, res) => {
         const { id } = req.query
         await execSQLQuery(`SELECT * FROM ESTOQUE WHERE ID_ESTOQUE = ${id}`, res)
     }
 }
-
-module.exports = EstoqueController
