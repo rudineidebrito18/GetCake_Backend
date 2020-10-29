@@ -8,8 +8,8 @@ module.exports = {
                             VALUES('${nome}','${cpfCnpj}')`, res)
     },
     index: async (req, res) => {
-        const { nome } = req.query
-        await execSQLQuery(`SELECT * FROM EMPRESA WHERE NM_EMPRESA = '${nome}'`, res)
+        const { cpfCnpj } = req.query
+        await execSQLQuery(`SELECT * FROM EMPRESA WHERE NM_EMPRESA = '${cpfCnpj}'`, res)
     },
     update: async (req, res) => {
         const id = parseInt(req.params.id)

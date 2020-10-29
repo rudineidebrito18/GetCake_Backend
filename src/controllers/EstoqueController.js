@@ -18,7 +18,26 @@ module.exports = {
                             ${dataSaida}, ${idEmpresa})`, res)
     },
     index: async (req, res) => {
-        const { id } = req.query
+        const { id } = req.params
         await execSQLQuery(`SELECT * FROM ESTOQUE WHERE ID_ESTOQUE = ${id}`, res)
+    },
+    update: async (req, res) => {
+        const { id } = req.params
+        const nomeProduto = req.body.nomeProduto
+        const codProdutoEstoque = parseInt(req.body.codProdutoEstoque)
+        const quantidadeMaxima = parseInt(req.body.quantidadeMaxima)
+        const quantidadeMinima = parseInt(req.body.quantidadeMinima)
+        const quantidadeEstoque = parseInt(req.body.quantidadeEstoque)
+        const dataEntrada = req.body.dataEntrada
+        const dataSaida = req.body.dataSaida
+        const idEmpresa = !req.body.idEmpresa ? null : parseInt(req.body.idEmpresa)
+
+        await execSQLQuery(`UPDATE ESTOQUE SET NM_PRODUTO='${nomeProduto}', COD_PROD_ESTOQUE=${codProdutoEstoque},
+                            QTD_MAX=${quantidadeMaxima}, QTD_MIN=${quantidadeMinima}, QTD_ESTOQUE=${quantidadeEstoque},
+                            DT_ENTRADA=${dataEntrada}, DT_SAIDA=${dataSaida}, ID_EMPRESA=${idEmpresa}`, res)
+    },
+    delete: async (req, res) => {
+        const { id } = req.params
+        await execSQLQuery(`DELETE ESTOQUE WHERE ID_ESTOQUE = ${id}`, res)
     }
 }
