@@ -16,7 +16,11 @@ const ClienteController = {
         const { nome, tipo, cpfCnpj } = Cliente(req)
         await execSqlQuery(`UPDATE CLIENTE SET NM_CLIENTE='${nome}', TIPO_CLIENTE='${tipo}',
                             CPF_CNPJ='${cpfCnpj}' WHERE ID_CLIENTE=${id}`, res)
-    }    
+    },
+    delete: async (req, res) => {
+        const { id } = req.params
+        await execSqlQuery(`DELETE CLIENTE WHERE ID_CLIENTE='${id}'`, res)
+    }
 }
 
 
