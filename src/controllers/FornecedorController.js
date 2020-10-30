@@ -11,12 +11,6 @@ module.exports = {
         const { id } = req.params
         await execSqlQuery(`SELECT * FROM FORNECEDOR WHERE ID_FORNECEDOR=${id}`, res)
     },
-    update: async (req, res) => {
-        const { id } = req.params
-        const { nomeFornecedor, nomeProduto, cpfCnpj, codProdutoFornecedor } = Fornecedor(req)
-        await execSqlQuery(`UPDATE FORNECEDOR SET NM_FORNECEDOR='${nomeFornecedor}', NM_PRODUTO='${nomeProduto}',
-                            CPF_CNPJ='${cpfCnpj}', COD_PROD_FORN=${codProdutoFornecedor} WHERE ID_FORNECEDOR=${id}`, res)
-    },
     delete: async (req, res) => {
         const { id } = req.params
         await execSqlQuery(`DELETE FORNECEDOR WHERE ID_FORNECEDOR=${id}`, res)

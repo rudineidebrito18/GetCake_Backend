@@ -23,23 +23,6 @@ module.exports = {
         const { id } = req.params
         await execSqlQuery(`SELECT * FROM ESTOQUE WHERE ID_ESTOQUE = ${id}`, res)
     },
-    update: async (req, res) => {
-        const { id } = req.params
-        const {
-            nomeProduto,
-            codProdutoEstoque,
-            quantidadeMaxima,
-            quantidadeMinima,
-            quantidadeEstoque,
-            dataEntrada,
-            dataSaida,
-            idEmpresa
-        } = Estoque(req)
-        await execSqlQuery(`UPDATE ESTOQUE SET NM_PRODUTO='${nomeProduto}', COD_PROD_ESTOQUE=${codProdutoEstoque},
-                            QTD_MAX=${quantidadeMaxima}, QTD_MIN=${quantidadeMinima}, QTD_ESTOQUE=${quantidadeEstoque},
-                            DT_ENTRADA=${dataEntrada}, DT_SAIDA=${dataSaida}, ID_EMPRESA=${idEmpresa} 
-                            WHERE ID_ESTOQUE=${id}`, res)
-    },
     delete: async (req, res) => {
         const { id } = req.params
         await execSqlQuery(`DELETE ESTOQUE WHERE ID_ESTOQUE = ${id}`, res)
