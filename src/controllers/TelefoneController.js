@@ -1,4 +1,3 @@
-const Telefone = require("../models/Telefone")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {

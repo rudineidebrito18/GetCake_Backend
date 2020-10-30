@@ -1,4 +1,3 @@
-const Fornecedor = require("../models/Fornecedor")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {

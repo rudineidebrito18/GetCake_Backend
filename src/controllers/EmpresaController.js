@@ -1,4 +1,3 @@
-const Empresa = require("../models/Empresa")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {

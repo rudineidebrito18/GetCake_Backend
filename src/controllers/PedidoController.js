@@ -1,4 +1,3 @@
-const Pedido = require("../models/Pedido")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {

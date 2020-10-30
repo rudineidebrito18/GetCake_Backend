@@ -1,4 +1,3 @@
-const Funcionario = require("../models/Funcionario")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {

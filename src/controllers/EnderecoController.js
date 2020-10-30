@@ -1,5 +1,4 @@
 const execSqlQuery = require("../utils/execSqlQuery")
-const Endereco = require("../models/Endereco")
 
 module.exports = {
     create: async (req, res) => {

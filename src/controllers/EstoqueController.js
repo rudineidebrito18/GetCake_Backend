@@ -1,4 +1,3 @@
-const Estoque = require("../models/Estoque")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {

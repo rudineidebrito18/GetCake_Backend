@@ -1,4 +1,3 @@
-const Cliente = require('../models/Cliente')
 const execSqlQuery = require('../utils/execSqlQuery')
 
 const ClienteController = {

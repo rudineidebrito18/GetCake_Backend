@@ -1,4 +1,3 @@
-const Caixa = require("../models/Caixa")
 const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {
