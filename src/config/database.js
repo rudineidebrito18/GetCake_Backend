@@ -8,6 +8,6 @@ module.exports = {
     },
     port: 1433,
     user: 'sa',
-    server: '172.17.0.1',
+    server: 'localhost',
 
 }
