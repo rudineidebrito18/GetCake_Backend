@@ -3,8 +3,8 @@ const execSqlQuery = require("../utils/execSqlQuery")
 module.exports = {
     create: async (req, res) => {
         const nomeFornecedor = req.body.nomeFornecedor.substring(0, 30)
-        const nomeProduto = req.body.nomeProduto
-        const cpfCnpj = req.body.cpfCnpj
+        const { nomeProduto } = req.body
+        const { cpfCnpj } = req.body
         const codProdutoFornecedor = parseInt(req.body.codProdutoFornecedor)
         await execSqlQuery(`INSERT INTO FORNECEDOR(NM_FORNECEDOR, NM_PRODUTO, CPF_CNPJ, COD_PROD_FORN)
                             VALUES('${nomeFornecedor}', '${nomeProduto}', '${cpfCnpj}', ${codProdutoFornecedor})`, res)

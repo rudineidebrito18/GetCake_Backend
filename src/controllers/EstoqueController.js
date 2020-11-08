@@ -2,13 +2,13 @@ const execSqlQuery = require("../utils/execSqlQuery")
 
 module.exports = {
     create: async (req, res) => {
-        const nomeProduto = req.body.nomeProduto
+        const { nomeProduto } = req.body
         const codProdutoEstoque = parseInt(req.body.codProdutoEstoque)
         const quantidadeMaxima = parseInt(req.body.quantidadeMaxima)
         const quantidadeMinima = parseInt(req.body.quantidadeMinima)
         const quantidadeEstoque = parseInt(req.body.quantidadeEstoque)
-        const dataEntrada = req.body.dataEntrada
-        const dataSaida = req.body.dataSaida
+        const { dataEntrada } = req.body
+        const { dataSaida } = req.body
         const idEmpresa = !req.body.idEmpresa ? null : parseInt(req.body.idEmpresa)
         await execSqlQuery(`INSERT INTO ESTOQUE(NM_PRODUTO, COD_PROD_ESTOQUE, QTD_MAX, QTD_MIN,
                             QTD_ESTOQUE, DT_ENTRADA, DT_SAIDA, ID_EMPRESA) VALUES
