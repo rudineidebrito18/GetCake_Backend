@@ -7,6 +7,7 @@ const EstoqueController = require('./controllers/EstoqueController')
 const FornecedorController = require('./controllers/FornecedorController')
 const FornecedorEmpresaController = require('./controllers/FornecedorEmpresaController')
 const FuncionarioController = require('./controllers/FuncionarioController')
+const HistoricoController = require('./controllers/HistoricoController')
 const PedidoController = require('./controllers/PedidoController')
 const TelefoneController = require('./controllers/TelefoneController')
 
@@ -58,5 +59,9 @@ router.get('/fornecedor/empresa/:id', FornecedorEmpresaController.index)
 router.post('/pedido', PedidoController.create)
 router.get('/pedido/:id', PedidoController.index)
 router.delete('/pedido/:id', PedidoController.delete)
+
+router.post('/historico', HistoricoController.create)
+router.get('/historico/:id', HistoricoController.index)
+
 
 module.exports = router
