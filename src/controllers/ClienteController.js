@@ -9,8 +9,8 @@ const ClienteController = {
                             VALUES('${nome}','${tipo}','${cpfCnpj}')`, res)
     },
     index: async (req, res) => {
-        const { cpfCnpj } = req.query
-        await execSqlQuery(`SELECT * FROM CLIENTE WHERE CPF_CNPJ = '${cpfCnpj}'`, res)
+        const { cpf_cnpj } = req.query
+        await execSqlQuery(`SELECT * FROM CLIENTE WHERE CPF_CNPJ = '${cpf_cnpj}'`, res)
     },
     update: async (req, res) => {
         const { id } = req.params
