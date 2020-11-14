@@ -10,8 +10,8 @@ module.exports = {
         const idCliente = !req.query.idCliente ? null : req.query.idCliente
         const idEmpresa = !req.query.idEmpresa ? null : req.query.idEmpresa
         await execSqlQuery(`INSERT INTO TELEFONE(TIPO_TEL, NUM1, NUM2, NUM3, ID_TEL_FORNECEDOR,
-                            ID_TEL_CLIENTE, ID_TEL_EMPRESA) VALUES('${tipoTelefone}', ${telefone1},
-                            ${telefone2}, ${telefone3}, ${idFornecedor}, ${idCliente}, ${idEmpresa})`, res)
+                            ID_TEL_CLIENTE, ID_TEL_EMPRESA) VALUES('${tipoTelefone}', '${telefone1}',
+                            '${telefone2}', '${telefone3}', ${idFornecedor}, ${idCliente}, ${idEmpresa})`, res)
     },
     index: async (req, res) => {
         const { id } = req.params
@@ -26,8 +26,8 @@ module.exports = {
         const idFornecedor = !req.query.idFornecedor ? null : req.query.idFornecedor
         const idCliente = !req.query.idCliente ? null : req.query.idCliente
         const idEmpresa = !req.query.idEmpresa ? null : req.query.idEmpresa
-        await execSqlQuery(`UPDATE TELEFONE SET TIPO_TEL='${tipoTelefone}', NUM1=${telefone1},
-                            NUM2=${telefone2}, NUM3=${telefone3}, ID_TEL_FORNECEDOR=${idFornecedor},
+        await execSqlQuery(`UPDATE TELEFONE SET TIPO_TEL='${tipoTelefone}', NUM1='${telefone1}',
+                            NUM2='${telefone2}', NUM3='${telefone3}', ID_TEL_FORNECEDOR=${idFornecedor},
                             ID_TEL_CLIENTE=${idCliente}, ID_TEL_EMPRESA=${idEmpresa}`, res)
     },
     delete: async (req, res) => {

@@ -10,7 +10,7 @@ const ClienteController = {
     },
     index: async (req, res) => {
         const { cpf_cnpj } = req.query
-        await execSqlQuery(`SELECT * FROM CLIENTE WHERE CPF_CNPJ = '${cpf_cnpj}'`, res)
+        await execSqlQuery(`SELECT ID_CLIENTE AS idCliente FROM CLIENTE WHERE CPF_CNPJ='${cpf_cnpj}'`, res)
     },
     update: async (req, res) => {
         const { id } = req.params
