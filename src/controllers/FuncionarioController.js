@@ -8,11 +8,10 @@ module.exports = {
         const { dataAdmissao } = req.body
         const { dataDemissao } = req.body
         const statusFuncionario = req.body.statusFuncionario.substring(0, 1)
-        const idEstoque = !req.body.idEstoque ? null : req.body.idEstoque
         await execSqlQuery(`INSERT INTO FUNCIONARIO(NM_FUNCIONARIO, CARGO_FUNCIONARIO, SAL_FUNCIONARIO,
                             DT_ADMISSAO, DT_DEMISSAO, STATUS_FUNCIONARIO, ID_ESTOQUE) VALUES('${nomeFuncionario}',
                             '${cargoFuncionario}', ${salarioFuncionario}, ${dataAdmissao}, ${dataDemissao},
-                            '${statusFuncionario}', ${idEstoque})`, res)
+                            '${statusFuncionario}')`, res)
     },
     index: async (req, res) => {
         const { id } = req.params
@@ -26,10 +25,9 @@ module.exports = {
         const { dataAdmissao } = req.body
         const { dataDemissao } = req.body
         const statusFuncionario = req.body.statusFuncionario.substring(0, 1)
-        const { idEstoque } = req.body
         await execSqlQuery(`UPDATE FUNCIONARIO SET NM_FUNCIONARIO='${nomeFuncionario}', CARGO_FUNCIONARIO='${cargoFuncionario}',
                             SAL_FUNCIONARIO=${salarioFuncionario}, DT_ADMISSAO=${dataAdmissao}, DT_DEMISSAO=${dataDemissao},
-                            STATUS_FUNCIONARIO='${statusFuncionario}', ID_ESTOQUE=${idEstoque} WHERE ID_FUNCIONARIO=${id}`, res)
+                            STATUS_FUNCIONARIO='${statusFuncionario}' WHERE ID_FUNCIONARIO=${id}`, res)
     },
     delete: async (req, res) => {
         const { id } = req.params

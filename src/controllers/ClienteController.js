@@ -10,6 +10,17 @@ const ClienteController = {
     },
     index: async (req, res) => {
         const { cpf_cnpj } = req.query
+        await execSqlQuery(`SELECT * FROM CLIENTE AS C 
+                            JOIN TELEFONE AS T ON C.ID_CLIENTE = T.ID_TEL_CLIENTE
+                            JOIN ENDERECO AS E ON C.ID_CLIENTE = E.ID_END_CLIENTE
+                            WHERE C.CPF_CNPJ='${cpf_cnpj}'`, res)
+    },
+    search: async (req, res) => {
+        const { nome } = req.query
+        await execSqlQuery(`SELECT * FROM CLIENTE WHERE NM_CLIENTE LIKE '%${nome}%'`, res)
+    },
+    getId: async (req, res) => {
+        const { cpf_cnpj } = req.query
         await execSqlQuery(`SELECT ID_CLIENTE AS idCliente FROM CLIENTE WHERE CPF_CNPJ='${cpf_cnpj}'`, res)
     },
     update: async (req, res) => {
@@ -25,6 +36,5 @@ const ClienteController = {
         await execSqlQuery(`DELETE CLIENTE WHERE ID_CLIENTE='${id}'`, res)
     }
 }
-
 
 module.exports = ClienteController

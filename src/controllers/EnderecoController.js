@@ -8,12 +8,10 @@ module.exports = {
         const { quadra } = req.body
         const { lote } = req.body
         const { numero } = req.body
-        const idFornecedor = !req.body.idFornecedor ? null : req.body.idFornecedor
-        const idCliente = !req.body.idCliente ? null : req.body.idCliente
-        const idEmpresa = !req.body.idEmpresa ? null : req.body.idEmpresa
-        await execSqlQuery(`INSERT INTO ENDERECO(CIDADE, ESTADO, RUA, QUADRA, LOTE, NUMERO, ID_END_FORNECEDOR,
-                            ID_END_CLIENTE, ID_END_EMPRESA) VALUES('${cidade}', '${estado}', '${rua}', ${quadra},
-                            ${lote}, ${numero}, ${idFornecedor}, ${idCliente}, ${idEmpresa})`, res)
+        const idCliente = req.body.idCliente
+        await execSqlQuery(`INSERT INTO ENDERECO(CIDADE, ESTADO, RUA, QUADRA, LOTE, NUMERO,
+                            ID_END_CLIENTE) VALUES('${cidade}', '${estado}', '${rua}', ${quadra},
+                            ${lote}, ${numero}, ${idCliente})`, res)
     },
     index: async (req, res) => {
         const { id } = req.params
@@ -27,12 +25,10 @@ module.exports = {
         const { quadra } = req.body
         const { lote } = req.body
         const { numero } = req.body
-        const idFornecedor = !req.body.idFornecedor ? null : req.body.idFornecedor
-        const idCliente = !req.body.idCliente ? null : req.body.idCliente
-        const idEmpresa = !req.body.idEmpresa ? null : req.body.idEmpresa
+        const idCliente = req.body.idCliente
         await execSqlQuery(`UPDATE ENDERECO SET CIDADE='${cidade}', ESTADO='${estado}', RUA='${rua}',
-                            QUADRA=${quadra}, LOTE=${lote}, NUMERO=${numero}, ID_END_FORNECEDOR=${idFornecedor},
-                            ID_END_CLIENTE=${idCliente}, ID_END_EMPRESA=${idEmpresa} WHERE ID_ENDERECO=${id}`, res)
+                            QUADRA=${quadra}, LOTE=${lote}, NUMERO=${numero},
+                            ID_END_CLIENTE=${idCliente} WHERE ID_ENDERECO=${id}`, res)
     },
     delete: async (req, res) => {
         const { id } = req.params
