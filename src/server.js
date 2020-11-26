@@ -18,5 +18,5 @@ sql.connect(sqlConfig)
 
 app.use('/', router)
 
-app.listen(3333);
+app.listen(process.env.PORT || 3000);
 console.log('API funcionando!');
