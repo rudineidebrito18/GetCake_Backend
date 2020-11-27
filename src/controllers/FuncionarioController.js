@@ -9,7 +9,7 @@ module.exports = {
         const { dataDemissao } = req.body
         const statusFuncionario = req.body.statusFuncionario.substring(0, 1)
         await execSqlQuery(`INSERT INTO FUNCIONARIO(NM_FUNCIONARIO, CARGO_FUNCIONARIO, SAL_FUNCIONARIO,
-                            DT_ADMISSAO, DT_DEMISSAO, STATUS_FUNCIONARIO, ID_ESTOQUE) VALUES('${nomeFuncionario}',
+                            DT_ADMISSAO, DT_DEMISSAO, STATUS_FUNCIONARIO) VALUES('${nomeFuncionario}',
                             '${cargoFuncionario}', ${salarioFuncionario}, ${dataAdmissao}, ${dataDemissao},
                             '${statusFuncionario}')`, res)
     },
