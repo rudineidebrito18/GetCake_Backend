@@ -1,13 +1,12 @@
 module.exports = {
-    password: 'Pim@1234',
-    database: 'GetCake',
+    password: 'Pim12345',
+    database: 'getcake',
     stream: false,
     options: {
         enableArithAbort: true,
         encrypt: false
     },
-    port: 1433,
-    user: 'sa',
-    server: 'localhost',
-
+    port: 5003,
+    user: 'getcake-db',
+    server: 'mssql914.umbler.com',
 }
