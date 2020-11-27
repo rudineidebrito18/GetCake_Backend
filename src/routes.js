@@ -21,7 +21,7 @@ router.put('/telefone/:id', TelefoneController.update)
 router.delete('/telefone/:id', TelefoneController.delete)
 
 router.post('/produto', ProdutoController.create)
-router.get('/produto', ProdutoController.index)
+router.get('/produtos', ProdutoController.index)
 router.put('/produto/:id', ProdutoController.update)
 router.delete('/produto/:id', ProdutoController.delete)
 

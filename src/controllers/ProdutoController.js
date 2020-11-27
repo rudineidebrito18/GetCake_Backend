@@ -10,7 +10,7 @@ module.exports = {
     },
     index: async (req, res) => {
         const { nome } = req.query
-        await execSqlQuery(`SELECT * FROM PRODUTO WHERE ID_PRODUTO LIKE '%${nome}%'`, res)
+        await execSqlQuery(`SELECT ID_PRODUTO AS id, NOME AS nome, VALOR AS valor, DESCRICAO AS  descricao FROM PRODUTO`, res)
     },
     update: async (req, res) => {
         const { id } = req.params
