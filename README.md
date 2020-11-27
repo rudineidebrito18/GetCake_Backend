@@ -5,7 +5,7 @@
 <p align="justify">O projeto consiste em um site de venda de bolos. </p>
 
 ## Deploy: 
-#
+https://getcake.herokuapp.com/
 
 ## Libs utilizadas
 - [X]   express
